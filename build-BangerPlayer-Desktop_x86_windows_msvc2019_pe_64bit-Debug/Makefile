@@ -230,6 +230,7 @@ Makefile: ..\BangerPlayer\BangerPlayer.pro D:\Programs\Qt\5.9.8\msvc2015_64\mksp
 		D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\features\qt_config.prf \
 		D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\win32-msvc\qmake.conf \
 		D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\features\spec_post.prf \
+		.qmake.stash \
 		D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\features\exclusive_builds.prf \
 		D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\common\msvc-version.conf \
 		D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\features\toolchain.prf \
@@ -255,8 +256,10 @@ Makefile: ..\BangerPlayer\BangerPlayer.pro D:\Programs\Qt\5.9.8\msvc2015_64\mksp
 		D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\features\lex.prf \
 		..\BangerPlayer\BangerPlayer.pro \
 		D:\Programs\Qt\5.9.8\msvc2015_64\lib\qtmaind.prl \
+		D:\Programs\Qt\5.9.8\msvc2015_64\lib\Qt5Multimedia.prl \
 		D:\Programs\Qt\5.9.8\msvc2015_64\lib\Qt5Widgets.prl \
 		D:\Programs\Qt\5.9.8\msvc2015_64\lib\Qt5Gui.prl \
+		D:\Programs\Qt\5.9.8\msvc2015_64\lib\Qt5Network.prl \
 		D:\Programs\Qt\5.9.8\msvc2015_64\lib\Qt5Core.prl
 	$(QMAKE) -o Makefile ..\BangerPlayer\BangerPlayer.pro -spec win32-msvc "CONFIG+=debug" "CONFIG+=qml_debug"
 D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\features\spec_pre.prf:
@@ -414,6 +417,7 @@ D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\features\qt_functions.prf:
 D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\features\qt_config.prf:
 D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\win32-msvc\qmake.conf:
 D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\features\spec_post.prf:
+.qmake.stash:
 D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\features\exclusive_builds.prf:
 D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\common\msvc-version.conf:
 D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\features\toolchain.prf:
@@ -439,8 +443,10 @@ D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\features\yacc.prf:
 D:\Programs\Qt\5.9.8\msvc2015_64\mkspecs\features\lex.prf:
 ..\BangerPlayer\BangerPlayer.pro:
 D:\Programs\Qt\5.9.8\msvc2015_64\lib\qtmaind.prl:
+D:\Programs\Qt\5.9.8\msvc2015_64\lib\Qt5Multimedia.prl:
 D:\Programs\Qt\5.9.8\msvc2015_64\lib\Qt5Widgets.prl:
 D:\Programs\Qt\5.9.8\msvc2015_64\lib\Qt5Gui.prl:
+D:\Programs\Qt\5.9.8\msvc2015_64\lib\Qt5Network.prl:
 D:\Programs\Qt\5.9.8\msvc2015_64\lib\Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\BangerPlayer\BangerPlayer.pro -spec win32-msvc "CONFIG+=debug" "CONFIG+=qml_debug"
