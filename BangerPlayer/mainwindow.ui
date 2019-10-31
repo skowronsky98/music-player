@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>865</width>
     <height>600</height>
    </rect>
   </property>
@@ -17,17 +17,30 @@
    <string notr="true">background-color: rgb(40, 40, 40);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="playBtn">
+   <widget class="QStackedWidget" name="frame">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>330</y>
-      <width>75</width>
-      <height>75</height>
+      <x>60</x>
+      <y>20</y>
+      <width>741</width>
+      <height>511</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">#playBtn {
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QPushButton" name="playBtn">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>110</y>
+        <width>75</width>
+        <height>75</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#playBtn {
 background-color: transparent;
 border-image: url(:/img/imgPlay.png);
 background: none;
@@ -35,10 +48,43 @@ border: none;
 background-repeat: none;
 }
 </string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>440</y>
+        <width>121</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Go to page 2</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>240</y>
+        <width>161</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Go to page 1</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -46,8 +92,8 @@ background-repeat: none;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>21</height>
+     <width>865</width>
+     <height>20</height>
     </rect>
    </property>
   </widget>

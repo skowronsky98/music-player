@@ -5,6 +5,7 @@
 #include <QMediaPlayer>
 #include <QDebug>
 #include <QString>
+#include <QStackedWidget>
 
 
 QT_BEGIN_NAMESPACE
@@ -22,9 +23,15 @@ public:
 private slots:
     void on_playBtn_clicked();
 
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     QMediaPlayer *player;
+
     bool clickedPlay = false;
 
     const QString playImageUrl = ":/img/imgPlay.png";

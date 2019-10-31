@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     player = new QMediaPlayer(this);
     connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
-    player->setMedia(QUrl("https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3"));
+    player->setMedia(QUrl("http://site4933.web1.titanaxe.com/music/song.mp3"));
     player->setVolume(40);
 
 }
@@ -18,8 +18,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-
 
 void MainWindow::on_playBtn_clicked()
 {
@@ -36,3 +34,16 @@ void MainWindow::on_playBtn_clicked()
     }
 }
 
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->page->hide();
+    ui->page_2->show();
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    ui->page_2->hide();
+    ui->page->show();
+}
