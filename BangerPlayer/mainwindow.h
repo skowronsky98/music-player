@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QMediaPlayer>
 #include <QDebug>
+#include <QString>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,9 +19,15 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_playBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
-    QMediaPlayer* player;
+    QMediaPlayer *player;
+    bool clickedPlay = false;
 
+    const QString playImageUrl = ":/img/imgPlay.png";
+    const QString pauseImageUrl = ":/img/imgPause.png";
 };
 #endif // MAINWINDOW_H

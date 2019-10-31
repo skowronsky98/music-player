@@ -16,6 +16,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -25,6 +26,7 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+    QPushButton *playBtn;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -36,6 +38,17 @@ public:
         MainWindow->setStyleSheet(QStringLiteral("background-color: rgb(40, 40, 40);"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
+        playBtn = new QPushButton(centralwidget);
+        playBtn->setObjectName(QStringLiteral("playBtn"));
+        playBtn->setGeometry(QRect(100, 330, 75, 75));
+        playBtn->setStyleSheet(QLatin1String("#playBtn {\n"
+"background-color: transparent;\n"
+"border-image: url(:/img/imgPlay.png);\n"
+"background: none;\n"
+"border: none;\n"
+"background-repeat: none;\n"
+"}\n"
+""));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -53,6 +66,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
+        playBtn->setText(QString());
     } // retranslateUi
 
 };
