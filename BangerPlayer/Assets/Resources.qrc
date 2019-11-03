@@ -1,8 +1,12 @@
 <RCC>
     <qresource prefix="/img">
-        <file>imgPlayBtn.png</file>
         <file>imgPause.png</file>
         <file>imgStop.png</file>
         <file>imgPlay.png</file>
+        <file>imgAlbum.png</file>
+        <file>imgNextSong.png</file>
+        <file>imgPrevSong.png</file>
+        <file>imgMute.png</file>
+        <file>imgVolume.png</file>
     </qresource>
 </RCC>

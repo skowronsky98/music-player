@@ -38,12 +38,10 @@ void MainWindow::on_playBtn_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
-    ui->page->hide();
-    ui->page_2->show();
+    ui->frame->setCurrentIndex(1);
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    ui->page_2->hide();
-    ui->page->show();
+    ui->frame->setCurrentIndex(0);
 }

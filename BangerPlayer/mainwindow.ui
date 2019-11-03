@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>865</width>
+    <width>850</width>
     <height>600</height>
    </rect>
   </property>
@@ -14,90 +14,325 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(40, 40, 40);</string>
+   <string notr="true">background-color: rgb(24, 24, 24);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="frame">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>20</y>
-      <width>741</width>
-      <height>511</height>
+      <x>170</x>
+      <y>0</y>
+      <width>681</width>
+      <height>521</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(24, 24, 24);</string>
+    </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
-     <widget class="QPushButton" name="playBtn">
+     <widget class="QLabel" name="libraryTitle">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>110</y>
-        <width>75</width>
-        <height>75</height>
+        <x>30</x>
+        <y>30</y>
+        <width>351</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">#playBtn {
+       <string notr="true">font: 75 italic 14pt &quot;Arial&quot;;
+color:white;</string>
+      </property>
+      <property name="text">
+       <string>My Library</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QLabel" name="playlistsTitle">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>40</y>
+        <width>351</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 italic 14pt &quot;Arial&quot;;
+color:white;</string>
+      </property>
+      <property name="text">
+       <string>Playlists</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="playerBar">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>520</y>
+      <width>850</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(40, 40, 40);
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="playBtn">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>10</y>
+       <width>25</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
 background-color: transparent;
 border-image: url(:/img/imgPlay.png);
 background: none;
 border: none;
 background-repeat: none;
-}
+
 </string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>440</y>
-        <width>121</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Go to page 2</string>
-      </property>
-     </widget>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
     </widget>
-    <widget class="QWidget" name="page_2">
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>240</y>
-        <width>161</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Go to page 1</string>
-      </property>
-     </widget>
+    <widget class="QLabel" name="songNameTxt">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+font: 75 12pt &quot;Arial&quot;;
+color: white;</string>
+     </property>
+     <property name="text">
+      <string>Song Title</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="artistNameTxt">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>201</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;Arial&quot;;
+color: white;</string>
+     </property>
+     <property name="text">
+      <string>Artist</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="nextSongBtn">
+     <property name="geometry">
+      <rect>
+       <x>490</x>
+       <y>12</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+border-image: url(:/img/imgNextSong.png);
+background: none;
+border: none;
+background-repeat: none;
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="prevSongBtn">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>12</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+border-image: url(:/img/imgPrevSong.png);
+background: none;
+border: none;
+background-repeat: none;
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QSlider" name="songSlider">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>50</y>
+       <width>351</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="volumeBtn">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>50</y>
+       <width>17</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+border-image: url(:/img/imgVolume.png);
+background: none;
+border: none;
+background-repeat: none;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QSlider" name="horizontalSlider">
+     <property name="geometry">
+      <rect>
+       <x>730</x>
+       <y>50</y>
+       <width>101</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="menu">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>-1</y>
+      <width>171</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(18, 18, 18);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="playlistsBtn">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>150</y>
+       <width>171</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:white;</string>
+     </property>
+     <property name="text">
+      <string>Playlists</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="libraryBtn">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>100</y>
+       <width>171</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:white;</string>
+     </property>
+     <property name="text">
+      <string>My Library</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>349</y>
+      <width>171</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="albumImg">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>170</width>
+       <height>170</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/img/imgAlbum.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
     </widget>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>865</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

@@ -167,7 +167,14 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_Resources.cpp
 debug\qrc_Resources.cpp: ..\BangerPlayer\Assets\Resources.qrc \
 		D:\Programs\Qt\5.9.8\msvc2015_64\bin\rcc.exe \
-		..\BangerPlayer\Assets\imgPlayBtn.png
+		..\BangerPlayer\Assets\imgPrevSong.png \
+		..\BangerPlayer\Assets\imgStop.png \
+		..\BangerPlayer\Assets\imgPlay.png \
+		..\BangerPlayer\Assets\imgNextSong.png \
+		..\BangerPlayer\Assets\imgVolume.png \
+		..\BangerPlayer\Assets\imgMute.png \
+		..\BangerPlayer\Assets\imgAlbum.png \
+		..\BangerPlayer\Assets\imgPause.png
 	D:\Programs\Qt\5.9.8\msvc2015_64\bin\rcc.exe -name Resources ..\BangerPlayer\Assets\Resources.qrc -o debug\qrc_Resources.cpp
 
 compiler_moc_predefs_make_all: debug\moc_predefs.h
@@ -302,7 +309,9 @@ debug\moc_mainwindow.cpp: D:\Programs\Qt\5.9.8\msvc2015_64\include\QtWidgets\QMa
 		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtMultimedia\qaudio.h \
 		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtNetwork\qnetworkconfiguration.h \
 		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtCore\QDebug \
-		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtGui\QPixmap \
+		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtWidgets\QStackedWidget \
+		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtWidgets\qstackedwidget.h \
+		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtWidgets\qframe.h \
 		..\BangerPlayer\mainwindow.h \
 		debug\moc_predefs.h \
 		D:\Programs\Qt\5.9.8\msvc2015_64\bin\moc.exe
@@ -453,7 +462,9 @@ debug\main.obj: ..\BangerPlayer\main.cpp ../BangerPlayer/mainwindow.h \
 		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtMultimedia\qaudio.h \
 		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtNetwork\qnetworkconfiguration.h \
 		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtCore\QDebug \
-		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtGui\QPixmap \
+		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtWidgets\QStackedWidget \
+		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtWidgets\qstackedwidget.h \
+		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtWidgets\qframe.h \
 		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtWidgets\QApplication \
 		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtWidgets\qapplication.h \
 		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtCore\qcoreapplication.h \
@@ -586,7 +597,9 @@ debug\mainwindow.obj: ..\BangerPlayer\mainwindow.cpp ../BangerPlayer/mainwindow.
 		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtMultimedia\qaudio.h \
 		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtNetwork\qnetworkconfiguration.h \
 		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtCore\QDebug \
-		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtGui\QPixmap \
+		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtWidgets\QStackedWidget \
+		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtWidgets\qstackedwidget.h \
+		D:\Programs\Qt\5.9.8\msvc2015_64\include\QtWidgets\qframe.h \
 		ui_mainwindow.h
 
 debug\qrc_Resources.obj: debug\qrc_Resources.cpp 

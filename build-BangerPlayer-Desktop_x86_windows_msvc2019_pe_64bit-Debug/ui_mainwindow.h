@@ -13,12 +13,13 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QStackedWidget>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -29,60 +30,147 @@ public:
     QWidget *centralwidget;
     QStackedWidget *frame;
     QWidget *page;
-    QPushButton *playBtn;
-    QPushButton *pushButton;
+    QLabel *libraryTitle;
     QWidget *page_2;
-    QPushButton *pushButton_2;
-    QMenuBar *menubar;
-    QStatusBar *statusbar;
+    QLabel *playlistsTitle;
+    QFrame *playerBar;
+    QPushButton *playBtn;
+    QLabel *songNameTxt;
+    QLabel *artistNameTxt;
+    QPushButton *nextSongBtn;
+    QPushButton *prevSongBtn;
+    QSlider *songSlider;
+    QPushButton *volumeBtn;
+    QSlider *horizontalSlider;
+    QFrame *menu;
+    QPushButton *playlistsBtn;
+    QPushButton *libraryBtn;
+    QFrame *frame_2;
+    QLabel *albumImg;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(865, 600);
-        MainWindow->setStyleSheet(QStringLiteral("background-color: rgb(40, 40, 40);"));
+        MainWindow->resize(850, 600);
+        MainWindow->setStyleSheet(QStringLiteral("background-color: rgb(24, 24, 24);"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         frame = new QStackedWidget(centralwidget);
         frame->setObjectName(QStringLiteral("frame"));
-        frame->setGeometry(QRect(60, 20, 741, 511));
+        frame->setGeometry(QRect(170, 0, 681, 521));
+        frame->setStyleSheet(QStringLiteral("background-color: rgb(24, 24, 24);"));
         page = new QWidget();
         page->setObjectName(QStringLiteral("page"));
-        playBtn = new QPushButton(page);
+        libraryTitle = new QLabel(page);
+        libraryTitle->setObjectName(QStringLiteral("libraryTitle"));
+        libraryTitle->setGeometry(QRect(30, 30, 351, 61));
+        libraryTitle->setStyleSheet(QLatin1String("font: 75 italic 14pt \"Arial\";\n"
+"color:white;"));
+        frame->addWidget(page);
+        page_2 = new QWidget();
+        page_2->setObjectName(QStringLiteral("page_2"));
+        playlistsTitle = new QLabel(page_2);
+        playlistsTitle->setObjectName(QStringLiteral("playlistsTitle"));
+        playlistsTitle->setGeometry(QRect(30, 40, 351, 61));
+        playlistsTitle->setStyleSheet(QLatin1String("font: 75 italic 14pt \"Arial\";\n"
+"color:white;"));
+        frame->addWidget(page_2);
+        playerBar = new QFrame(centralwidget);
+        playerBar->setObjectName(QStringLiteral("playerBar"));
+        playerBar->setGeometry(QRect(0, 520, 850, 80));
+        playerBar->setStyleSheet(QLatin1String("background-color: rgb(40, 40, 40);\n"
+""));
+        playerBar->setFrameShape(QFrame::StyledPanel);
+        playerBar->setFrameShadow(QFrame::Raised);
+        playBtn = new QPushButton(playerBar);
         playBtn->setObjectName(QStringLiteral("playBtn"));
-        playBtn->setGeometry(QRect(200, 110, 75, 75));
-        playBtn->setStyleSheet(QLatin1String("#playBtn {\n"
+        playBtn->setGeometry(QRect(420, 10, 25, 25));
+        playBtn->setStyleSheet(QLatin1String("\n"
 "background-color: transparent;\n"
 "border-image: url(:/img/imgPlay.png);\n"
 "background: none;\n"
 "border: none;\n"
 "background-repeat: none;\n"
-"}\n"
+"\n"
 ""));
         playBtn->setAutoDefault(false);
-        pushButton = new QPushButton(page);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(10, 440, 121, 61));
-        frame->addWidget(page);
-        page_2 = new QWidget();
-        page_2->setObjectName(QStringLiteral("page_2"));
-        pushButton_2 = new QPushButton(page_2);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(280, 240, 161, 81));
-        frame->addWidget(page_2);
+        songNameTxt = new QLabel(playerBar);
+        songNameTxt->setObjectName(QStringLiteral("songNameTxt"));
+        songNameTxt->setGeometry(QRect(10, 10, 211, 31));
+        songNameTxt->setStyleSheet(QLatin1String("\n"
+"font: 75 12pt \"Arial\";\n"
+"color: white;"));
+        artistNameTxt = new QLabel(playerBar);
+        artistNameTxt->setObjectName(QStringLiteral("artistNameTxt"));
+        artistNameTxt->setGeometry(QRect(10, 40, 201, 21));
+        artistNameTxt->setStyleSheet(QLatin1String("font: 10pt \"Arial\";\n"
+"color: white;"));
+        nextSongBtn = new QPushButton(playerBar);
+        nextSongBtn->setObjectName(QStringLiteral("nextSongBtn"));
+        nextSongBtn->setGeometry(QRect(490, 12, 20, 20));
+        nextSongBtn->setStyleSheet(QLatin1String("background-color: transparent;\n"
+"border-image: url(:/img/imgNextSong.png);\n"
+"background: none;\n"
+"border: none;\n"
+"background-repeat: none;\n"
+""));
+        nextSongBtn->setAutoDefault(false);
+        prevSongBtn = new QPushButton(playerBar);
+        prevSongBtn->setObjectName(QStringLiteral("prevSongBtn"));
+        prevSongBtn->setGeometry(QRect(350, 12, 20, 20));
+        prevSongBtn->setStyleSheet(QLatin1String("background-color: transparent;\n"
+"border-image: url(:/img/imgPrevSong.png);\n"
+"background: none;\n"
+"border: none;\n"
+"background-repeat: none;\n"
+""));
+        prevSongBtn->setAutoDefault(false);
+        songSlider = new QSlider(playerBar);
+        songSlider->setObjectName(QStringLiteral("songSlider"));
+        songSlider->setGeometry(QRect(260, 50, 351, 20));
+        songSlider->setStyleSheet(QStringLiteral(""));
+        songSlider->setOrientation(Qt::Horizontal);
+        volumeBtn = new QPushButton(playerBar);
+        volumeBtn->setObjectName(QStringLiteral("volumeBtn"));
+        volumeBtn->setGeometry(QRect(700, 50, 17, 17));
+        volumeBtn->setStyleSheet(QLatin1String("background-color: transparent;\n"
+"border-image: url(:/img/imgVolume.png);\n"
+"background: none;\n"
+"border: none;\n"
+"background-repeat: none;"));
+        horizontalSlider = new QSlider(playerBar);
+        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
+        horizontalSlider->setGeometry(QRect(730, 50, 101, 16));
+        horizontalSlider->setOrientation(Qt::Horizontal);
+        menu = new QFrame(centralwidget);
+        menu->setObjectName(QStringLiteral("menu"));
+        menu->setGeometry(QRect(-1, -1, 171, 341));
+        menu->setStyleSheet(QStringLiteral("background-color: rgb(18, 18, 18);"));
+        menu->setFrameShape(QFrame::StyledPanel);
+        menu->setFrameShadow(QFrame::Raised);
+        playlistsBtn = new QPushButton(menu);
+        playlistsBtn->setObjectName(QStringLiteral("playlistsBtn"));
+        playlistsBtn->setGeometry(QRect(0, 150, 171, 51));
+        playlistsBtn->setStyleSheet(QStringLiteral("color:white;"));
+        libraryBtn = new QPushButton(menu);
+        libraryBtn->setObjectName(QStringLiteral("libraryBtn"));
+        libraryBtn->setGeometry(QRect(0, 100, 171, 51));
+        libraryBtn->setStyleSheet(QStringLiteral("color:white;"));
+        frame_2 = new QFrame(centralwidget);
+        frame_2->setObjectName(QStringLiteral("frame_2"));
+        frame_2->setGeometry(QRect(0, 349, 171, 171));
+        frame_2->setFrameShape(QFrame::StyledPanel);
+        frame_2->setFrameShadow(QFrame::Raised);
+        albumImg = new QLabel(frame_2);
+        albumImg->setObjectName(QStringLiteral("albumImg"));
+        albumImg->setGeometry(QRect(0, 0, 170, 170));
+        albumImg->setStyleSheet(QStringLiteral("image: url(:/img/imgAlbum.png);"));
         MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 865, 20));
-        MainWindow->setMenuBar(menubar);
-        statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName(QStringLiteral("statusbar"));
-        MainWindow->setStatusBar(statusbar);
 
         retranslateUi(MainWindow);
 
-        frame->setCurrentIndex(0);
+        frame->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -91,9 +179,17 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
+        libraryTitle->setText(QApplication::translate("MainWindow", "My Library", Q_NULLPTR));
+        playlistsTitle->setText(QApplication::translate("MainWindow", "Playlists", Q_NULLPTR));
         playBtn->setText(QString());
-        pushButton->setText(QApplication::translate("MainWindow", "Go to page 2", Q_NULLPTR));
-        pushButton_2->setText(QApplication::translate("MainWindow", "Go to page 1", Q_NULLPTR));
+        songNameTxt->setText(QApplication::translate("MainWindow", "Song Title", Q_NULLPTR));
+        artistNameTxt->setText(QApplication::translate("MainWindow", "Artist", Q_NULLPTR));
+        nextSongBtn->setText(QString());
+        prevSongBtn->setText(QString());
+        volumeBtn->setText(QString());
+        playlistsBtn->setText(QApplication::translate("MainWindow", "Playlists", Q_NULLPTR));
+        libraryBtn->setText(QApplication::translate("MainWindow", "My Library", Q_NULLPTR));
+        albumImg->setText(QString());
     } // retranslateUi
 
 };
