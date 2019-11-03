@@ -10,7 +10,11 @@ MainWindow::MainWindow(QWidget *parent)
     player = new QMediaPlayer(this);
     connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
     player->setMedia(QUrl("http://site4933.web1.titanaxe.com/music/song.mp3"));
-    player->setVolume(40);
+
+    ui->volumeSlider->setRange(0,100);
+    ui->volumeSlider->setFixedWidth(100);
+    ui->volumeSlider->setValue(50);
+    connect(ui->volumeSlider, SIGNAL(valueChanged(int)),player, SLOT(setVolume(int)));
 
 }
 
@@ -44,4 +48,12 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_2_clicked()
 {
     ui->frame->setCurrentIndex(0);
+}
+
+void MainWindow::on_volumeSlider_valueChanged(int value)
+{
+    if(value == 0)
+        ui->volumeBtn->setStyleSheet("border-image:url("+ muteImageUrl +");");
+    else
+        ui->volumeBtn->setStyleSheet("border-image:url("+ volumeImageUrl +");");
 }

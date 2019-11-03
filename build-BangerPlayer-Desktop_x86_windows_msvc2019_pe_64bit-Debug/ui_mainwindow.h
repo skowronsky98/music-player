@@ -41,7 +41,7 @@ public:
     QPushButton *prevSongBtn;
     QSlider *songSlider;
     QPushButton *volumeBtn;
-    QSlider *horizontalSlider;
+    QSlider *volumeSlider;
     QFrame *menu;
     QPushButton *playlistsBtn;
     QPushButton *libraryBtn;
@@ -139,10 +139,10 @@ public:
 "background: none;\n"
 "border: none;\n"
 "background-repeat: none;"));
-        horizontalSlider = new QSlider(playerBar);
-        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
-        horizontalSlider->setGeometry(QRect(730, 50, 101, 16));
-        horizontalSlider->setOrientation(Qt::Horizontal);
+        volumeSlider = new QSlider(playerBar);
+        volumeSlider->setObjectName(QStringLiteral("volumeSlider"));
+        volumeSlider->setGeometry(QRect(730, 50, 101, 16));
+        volumeSlider->setOrientation(Qt::Horizontal);
         menu = new QFrame(centralwidget);
         menu->setObjectName(QStringLiteral("menu"));
         menu->setGeometry(QRect(-1, -1, 171, 341));

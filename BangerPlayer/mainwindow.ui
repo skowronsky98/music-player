@@ -235,7 +235,7 @@ background-repeat: none;</string>
       <string/>
      </property>
     </widget>
-    <widget class="QSlider" name="horizontalSlider">
+    <widget class="QSlider" name="volumeSlider">
      <property name="geometry">
       <rect>
        <x>730</x>
