@@ -23,11 +23,11 @@ public:
 private slots:
     void on_playBtn_clicked();
 
-    void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
-
     void on_volumeSlider_valueChanged(int value);
+
+    void on_libraryBtn_clicked();
+
+    void on_playlistsBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

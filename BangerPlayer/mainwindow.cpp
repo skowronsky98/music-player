@@ -40,15 +40,7 @@ void MainWindow::on_playBtn_clicked()
 
 
 
-void MainWindow::on_pushButton_clicked()
-{
-    ui->frame->setCurrentIndex(1);
-}
 
-void MainWindow::on_pushButton_2_clicked()
-{
-    ui->frame->setCurrentIndex(0);
-}
 
 void MainWindow::on_volumeSlider_valueChanged(int value)
 {
@@ -56,4 +48,14 @@ void MainWindow::on_volumeSlider_valueChanged(int value)
         ui->volumeBtn->setStyleSheet("border-image:url("+ muteImageUrl +");");
     else
         ui->volumeBtn->setStyleSheet("border-image:url("+ volumeImageUrl +");");
+}
+
+void MainWindow::on_libraryBtn_clicked()
+{
+    ui->frame->setCurrentIndex(0);
+}
+
+void MainWindow::on_playlistsBtn_clicked()
+{
+    ui->frame->setCurrentIndex(1);
 }
