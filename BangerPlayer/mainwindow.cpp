@@ -1,11 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "dbconnection.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+
 
     player = new QMediaPlayer(this);
     connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
@@ -15,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->volumeSlider->setFixedWidth(100);
     ui->volumeSlider->setValue(50);
     connect(ui->volumeSlider, SIGNAL(valueChanged(int)),player, SLOT(setVolume(int)));
+
 
 }
 
