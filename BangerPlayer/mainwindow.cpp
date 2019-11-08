@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "dbconnection.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -9,10 +10,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
 
-
     player = new QMediaPlayer(this);
-    connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
-    player->setMedia(QUrl("http://site4933.web1.titanaxe.com/music/song.mp3"));
+    connect(player, &QMediaPlayer::positionChanged, this, &MainWindow::on_positionChanged);
+    connect(player, &QMediaPlayer::durationChanged, this, &MainWindow::on_durationChanged);
+
+    PlaySong("http://site4933.web1.titanaxe.com/music/song.mp3");
+
 
     ui->volumeSlider->setRange(0,100);
     ui->volumeSlider->setFixedWidth(100);
@@ -42,7 +45,10 @@ void MainWindow::on_playBtn_clicked()
     }
 }
 
-
+void MainWindow::PlaySong(QString url)
+{
+    player->setMedia(QUrl(url));
+}
 
 
 
@@ -62,4 +68,28 @@ void MainWindow::on_libraryBtn_clicked()
 void MainWindow::on_playlistsBtn_clicked()
 {
     ui->frame->setCurrentIndex(1);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    qDebug() << "pos" << player->position();
+    qDebug() << "duration" << player->duration();
+    qDebug() << "val" << ui->songSlider->value();
+}
+
+void MainWindow::on_durationChanged(qint64 position)
+{
+    ui->songSlider->setMaximum((int)position);
+}
+
+void MainWindow::on_positionChanged(qint64 position)
+{
+    ui->songSlider->setValue((int)position);
+    if(player->duration() != 0 && position == player->duration())
+        on_playBtn_clicked();
+}
+
+void MainWindow::on_songSlider_sliderMoved(int position)
+{
+    player->setPosition(position);
 }

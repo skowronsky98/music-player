@@ -29,10 +29,19 @@ private slots:
 
     void on_playlistsBtn_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_durationChanged(qint64 position);
+
+    void on_positionChanged(qint64 position);
+
+    void on_songSlider_sliderMoved(int position);
+
 private:
     Ui::MainWindow *ui;
     QMediaPlayer *player;
 
+    void PlaySong(QString url);
     bool clickedPlay = false;
 
     const QString playImageUrl = ":/img/imgPlay.png";
