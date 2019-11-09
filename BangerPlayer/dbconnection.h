@@ -4,6 +4,9 @@
 #include <QObject>
 #include <QtSql>
 #include <QSqlDatabase>
+#include <QSqlQuery>
+
+
 
 class DBConnection : public QObject
 {
@@ -13,6 +16,7 @@ public:
 private:
     QSqlDatabase database;
     bool ok;
+
 
 signals:
 

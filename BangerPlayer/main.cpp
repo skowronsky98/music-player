@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     w.setWindowTitle("Banger Player");
     w.show();
 
-    DBConnection db;
+
 
     return a.exec();
 }

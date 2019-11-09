@@ -16,13 +16,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    author.cpp \
     dbconnection.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    music.cpp \
+    playlist.cpp
 
 HEADERS += \
+    author.h \
     dbconnection.h \
-    mainwindow.h
+    mainwindow.h \
+    music.h \
+    playlist.h
 
 FORMS += \
     mainwindow.ui
@@ -34,3 +40,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     Assets/Resources.qrc
+

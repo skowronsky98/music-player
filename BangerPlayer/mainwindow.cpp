@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->volumeSlider->setValue(50);
     connect(ui->volumeSlider, SIGNAL(valueChanged(int)),player, SLOT(setVolume(int)));
 
+    DBConnection connect;
 
 }
 
