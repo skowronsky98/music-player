@@ -7,6 +7,9 @@
 #include <QString>
 #include <QStackedWidget>
 
+#include <playlist.h>
+#include "dbconnection.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -37,9 +40,14 @@ private slots:
 
     void on_songSlider_sliderMoved(int position);
 
+    void on_searchBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     QMediaPlayer *player;
+    Playlist *userLibrary;
+    DBConnection *dbConnection;
+
 
     void PlaySong(QString url);
     bool clickedPlay = false;

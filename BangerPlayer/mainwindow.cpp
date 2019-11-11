@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "dbconnection.h"
+
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(player, &QMediaPlayer::positionChanged, this, &MainWindow::on_positionChanged);
     connect(player, &QMediaPlayer::durationChanged, this, &MainWindow::on_durationChanged);
 
-    PlaySong("http://site4933.web1.titanaxe.com/music/song.mp3");
+    PlaySong("http://site4933.web1.titanaxe.com/zabson/floyd.mp3");
 
 
     ui->volumeSlider->setRange(0,100);
@@ -22,7 +22,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->volumeSlider->setValue(50);
     connect(ui->volumeSlider, SIGNAL(valueChanged(int)),player, SLOT(setVolume(int)));
 
-    DBConnection connect;
+    userLibrary = new Playlist(this);
+
+
+    dbConnection = new DBConnection(this);
+    //dbConnection->GetUserLibrary(userLibrary, "a","b");
+    //Close Connection with Databse
+    //connect.CloseConnection();
 
 }
 
@@ -71,11 +77,18 @@ void MainWindow::on_playlistsBtn_clicked()
     ui->frame->setCurrentIndex(1);
 }
 
+void MainWindow::on_searchBtn_clicked()
+{
+    ui->frame->setCurrentIndex(2);
+}
+
 void MainWindow::on_pushButton_clicked()
 {
-    qDebug() << "pos" << player->position();
-    qDebug() << "duration" << player->duration();
-    qDebug() << "val" << ui->songSlider->value();
+    //qDebug() << "query" <<
+
+    dbConnection->GetUserLibrary(userLibrary);
+    userLibrary->ShowPlaylist();
+
 }
 
 void MainWindow::on_durationChanged(qint64 position)
@@ -94,3 +107,4 @@ void MainWindow::on_songSlider_sliderMoved(int position)
 {
     player->setPosition(position);
 }
+

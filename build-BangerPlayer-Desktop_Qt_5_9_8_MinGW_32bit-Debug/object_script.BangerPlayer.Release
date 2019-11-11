@@ -1,0 +1,14 @@
+INPUT(
+./release\author.o
+./release\dbconnection.o
+./release\main.o
+./release\mainwindow.o
+./release\music.o
+./release\playlist.o
+./release\qrc_Resources.o
+./release\moc_author.o
+./release\moc_dbconnection.o
+./release\moc_mainwindow.o
+./release\moc_music.o
+./release\moc_playlist.o
+);

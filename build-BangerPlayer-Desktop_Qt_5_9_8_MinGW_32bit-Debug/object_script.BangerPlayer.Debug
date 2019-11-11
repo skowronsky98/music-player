@@ -1,0 +1,14 @@
+INPUT(
+./debug\author.o
+./debug\dbconnection.o
+./debug\main.o
+./debug\mainwindow.o
+./debug\music.o
+./debug\playlist.o
+./debug\qrc_Resources.o
+./debug\moc_author.o
+./debug\moc_dbconnection.o
+./debug\moc_mainwindow.o
+./debug\moc_music.o
+./debug\moc_playlist.o
+);

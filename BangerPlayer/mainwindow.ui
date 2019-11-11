@@ -36,10 +36,10 @@
      <widget class="QLabel" name="libraryTitle">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>30</y>
+        <x>20</x>
+        <y>20</y>
         <width>351</width>
-        <height>61</height>
+        <height>31</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -50,21 +50,20 @@ color:white;</string>
        <string>My Library</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QListView" name="libraryList">
       <property name="geometry">
        <rect>
-        <x>169</x>
-        <y>250</y>
-        <width>211</width>
-        <height>131</height>
+        <x>0</x>
+        <y>60</y>
+        <width>681</width>
+        <height>461</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">color:white;
-background-color: rgb(255, 255, 127);</string>
+       <string notr="true">border-color:&quot;transparent&quot;;</string>
       </property>
-      <property name="text">
-       <string>PushButton</string>
+      <property name="editTriggers">
+       <set>QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
       </property>
      </widget>
     </widget>
@@ -87,6 +86,7 @@ color:white;</string>
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="page_3"/>
    </widget>
    <widget class="QFrame" name="playerBar">
     <property name="geometry">
@@ -265,6 +265,23 @@ background-repeat: none;</string>
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>10</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:white;
+background-color: rgb(255, 255, 127);</string>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="menu">
     <property name="geometry">
@@ -314,6 +331,22 @@ background-repeat: none;</string>
      </property>
      <property name="text">
       <string>My Library</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="searchBtn">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>200</y>
+       <width>171</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:white;</string>
+     </property>
+     <property name="text">
+      <string>Search</string>
      </property>
     </widget>
    </widget>

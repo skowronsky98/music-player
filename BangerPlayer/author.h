@@ -4,20 +4,13 @@
 #include <QObject>
 #include <QString>
 
-class Author : public QObject
+class Author
 {
-    Q_OBJECT
 public:
-    explicit Author(QObject *parent = nullptr);
-protected:
-    int id;
+    int authorId;
     QString authorName;
     QString authorSurname;
 
-
-signals:
-
-public slots:
 };
 
 #endif // AUTHOR_H

@@ -6,12 +6,12 @@
 
 class Music : public Author
 {
-    Q_OBJECT
+
 public:
-    explicit Music(QObject *parent = nullptr);
-protected:
-    QString musicName;
-    int idMusic;
+    explicit Music(int mId = 999, QString mTitle = "error", QString mSource = "error");
+    QString musicTitle;
+    QString musicSource;
+    int musicId;
 
 signals:
 
