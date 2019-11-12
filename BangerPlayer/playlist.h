@@ -14,7 +14,6 @@ public:
     explicit Playlist(QObject *parent = nullptr);
     void GetUserLibraryData(int musicId, QString musicTitle, QString musicSource, QString albumTitle);
     void ShowPlaylist();
-protected:
     QString playlistName;
     QList<Music> listOfSongs;
 

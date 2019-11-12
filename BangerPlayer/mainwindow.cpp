@@ -14,7 +14,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(player, &QMediaPlayer::positionChanged, this, &MainWindow::on_positionChanged);
     connect(player, &QMediaPlayer::durationChanged, this, &MainWindow::on_durationChanged);
 
-    PlaySong("http://site4933.web1.titanaxe.com/zabson/floyd.mp3");
+    playlist = new QMediaPlaylist(this);
+
+
+    //PlaySong("http://site4933.web1.titanaxe.com/malik_montana/lyzka.mp3");
 
 
     ui->volumeSlider->setRange(0,100);
@@ -24,11 +27,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     userLibrary = new Playlist(this);
 
-
     dbConnection = new DBConnection(this);
-    //dbConnection->GetUserLibrary(userLibrary, "a","b");
-    //Close Connection with Databse
-    //connect.CloseConnection();
+    dbConnection->GetUserLibrary(userLibrary);
+    userLibrary->ShowPlaylist();
+
+
+    SetPlaylist(userLibrary);
 
 }
 
@@ -54,10 +58,17 @@ void MainWindow::on_playBtn_clicked()
 
 void MainWindow::PlaySong(QString url)
 {
-    player->setMedia(QUrl(url));
+    //player->setMedia(QUrl(url));
 }
 
-
+void MainWindow::SetPlaylist(Playlist *userLibrary)
+{
+    for (int i = 0; i < userLibrary->listOfSongs.size(); ++i) {
+        playlist->addMedia(QUrl(userLibrary->listOfSongs[i].musicSource));
+    }
+    playlist->setCurrentIndex(0);
+    player->setPlaylist(playlist);
+}
 
 void MainWindow::on_volumeSlider_valueChanged(int value)
 {
@@ -84,10 +95,9 @@ void MainWindow::on_searchBtn_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
-    //qDebug() << "query" <<
+    //Debuging Button
 
-    dbConnection->GetUserLibrary(userLibrary);
-    userLibrary->ShowPlaylist();
+
 
 }
 
@@ -99,8 +109,8 @@ void MainWindow::on_durationChanged(qint64 position)
 void MainWindow::on_positionChanged(qint64 position)
 {
     ui->songSlider->setValue((int)position);
-    if(player->duration() != 0 && position == player->duration())
-        on_playBtn_clicked();
+    //if(player->duration() != 0 && position == player->duration())
+        //on_playBtn_clicked();
 }
 
 void MainWindow::on_songSlider_sliderMoved(int position)
@@ -108,3 +118,13 @@ void MainWindow::on_songSlider_sliderMoved(int position)
     player->setPosition(position);
 }
 
+
+void MainWindow::on_nextSongBtn_clicked()
+{
+    playlist->next();
+}
+
+void MainWindow::on_prevSongBtn_clicked()
+{
+    playlist->previous();
+}

@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QString>
 #include <QStackedWidget>
+#include <QMediaPlaylist>
 
 #include <playlist.h>
 #include "dbconnection.h"
@@ -42,14 +43,21 @@ private slots:
 
     void on_searchBtn_clicked();
 
+    void on_nextSongBtn_clicked();
+
+    void on_prevSongBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     QMediaPlayer *player;
     Playlist *userLibrary;
     DBConnection *dbConnection;
+    QMediaPlaylist *playlist;
+
 
 
     void PlaySong(QString url);
+    void SetPlaylist(Playlist* userLibrary);
     bool clickedPlay = false;
 
     const QString playImageUrl = ":/img/imgPlay.png";
