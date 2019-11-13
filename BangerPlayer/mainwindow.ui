@@ -349,6 +349,27 @@ background-color: rgb(255, 255, 127);</string>
       <string>Search</string>
      </property>
     </widget>
+    <widget class="QLabel" name="userlabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+font: 75 17pt &quot;Arial&quot;;
+color: white;</string>
+     </property>
+     <property name="text">
+      <string>Uzytkownik</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="frame_2">
     <property name="geometry">

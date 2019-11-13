@@ -31,7 +31,7 @@ private slots:
 
 private:
     Ui::AuthWindow *ui;
-    MainWindow mainwindow;
+    MainWindow *mainwindow;
     Authentication auth;
     QMessageBox mess;
 };

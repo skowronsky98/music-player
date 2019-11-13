@@ -10,6 +10,7 @@
 
 #include <playlist.h>
 #include "dbconnection.h"
+#include "datastore.h"
 
 
 QT_BEGIN_NAMESPACE

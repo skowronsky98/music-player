@@ -50,6 +50,7 @@ public:
     QPushButton *playlistsBtn;
     QPushButton *libraryBtn;
     QPushButton *searchBtn;
+    QLabel *userlabel;
     QFrame *frame_2;
     QLabel *albumImg;
 
@@ -179,6 +180,13 @@ public:
         searchBtn->setObjectName(QStringLiteral("searchBtn"));
         searchBtn->setGeometry(QRect(0, 200, 171, 51));
         searchBtn->setStyleSheet(QStringLiteral("color:white;"));
+        userlabel = new QLabel(menu);
+        userlabel->setObjectName(QStringLiteral("userlabel"));
+        userlabel->setGeometry(QRect(20, 20, 141, 31));
+        userlabel->setStyleSheet(QLatin1String("\n"
+"font: 75 17pt \"Arial\";\n"
+"color: white;"));
+        userlabel->setAlignment(Qt::AlignCenter);
         frame_2 = new QFrame(centralwidget);
         frame_2->setObjectName(QStringLiteral("frame_2"));
         frame_2->setGeometry(QRect(0, 349, 171, 171));
@@ -213,6 +221,7 @@ public:
         playlistsBtn->setText(QApplication::translate("MainWindow", "Playlists", Q_NULLPTR));
         libraryBtn->setText(QApplication::translate("MainWindow", "My Library", Q_NULLPTR));
         searchBtn->setText(QApplication::translate("MainWindow", "Search", Q_NULLPTR));
+        userlabel->setText(QApplication::translate("MainWindow", "Uzytkownik", Q_NULLPTR));
         albumImg->setText(QString());
     } // retranslateUi
 

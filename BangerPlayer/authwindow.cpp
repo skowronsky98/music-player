@@ -27,11 +27,15 @@ void AuthWindow::on_registerOptionButton_clicked()
 
 void AuthWindow::on_loginButton_clicked()
 {
+
     QString login = ui->loginData->text();
     QString password = ui->passwordData->text();
     if(auth.Login(login,password)){
+        auth.SendData(login);
         hide();
-        mainwindow.show();
+        mainwindow = new MainWindow(this);
+        mainwindow->show();
+
     }
     else{
         mess.setText("Nie ma takiego użytkownika!");

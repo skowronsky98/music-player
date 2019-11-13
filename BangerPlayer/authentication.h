@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <dbconnection.h>
+#include <datastore.h>
 
 class Authentication : public QObject
 {
@@ -11,6 +12,7 @@ public:
     explicit Authentication(QObject *parent = nullptr);
     bool Login(QString login, QString password);
     bool Register(QString login,QString password,QString name,QString surname,QString nickname);
+    bool SendData(QString login);
     DBConnection db;
 
 signals:

@@ -61,13 +61,13 @@ bool DBConnection::UserAuthRegister(QString login,QString password,QString name,
         return false;
 
 }
-QString GetUserNick(QString login){
+QString DBConnection::GetUserNick(QString login){
     QString nick;
-    QSqlQuery query("SELECT login FROM users");
+    QSqlQuery query("SELECT login,nickname FROM users");
     while (query.next()){
         if(query.value(0)==login)
         {
-            nick = query.value(0).toString();
+            nick = query.value(1).toString();
             return nick;
         }
 

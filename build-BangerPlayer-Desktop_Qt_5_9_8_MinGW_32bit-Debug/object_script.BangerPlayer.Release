@@ -2,6 +2,7 @@ INPUT(
 ./release\authentication.o
 ./release\author.o
 ./release\authwindow.o
+./release\datastore.o
 ./release\dbconnection.o
 ./release\main.o
 ./release\mainwindow.o

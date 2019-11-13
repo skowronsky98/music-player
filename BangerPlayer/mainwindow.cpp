@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->userlabel->setText(DataStore::login);
+
 
     player = new QMediaPlayer(this);
     connect(player, &QMediaPlayer::positionChanged, this, &MainWindow::on_positionChanged);

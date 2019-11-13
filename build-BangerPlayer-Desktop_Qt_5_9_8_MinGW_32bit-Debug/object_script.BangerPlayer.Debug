@@ -2,6 +2,7 @@ INPUT(
 ./debug\authentication.o
 ./debug\author.o
 ./debug\authwindow.o
+./debug\datastore.o
 ./debug\dbconnection.o
 ./debug\main.o
 ./debug\mainwindow.o

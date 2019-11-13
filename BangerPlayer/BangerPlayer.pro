@@ -19,6 +19,7 @@ SOURCES += \
     authentication.cpp \
     author.cpp \
     authwindow.cpp \
+    datastore.cpp \
     dbconnection.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     authentication.h \
     author.h \
     authwindow.h \
+    datastore.h \
     dbconnection.h \
     mainwindow.h \
     music.h \
