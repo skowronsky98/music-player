@@ -52,12 +52,9 @@ private:
     QMediaPlayer *player;
     Playlist *userLibrary;
     DBConnection *dbConnection;
-    QMediaPlaylist *playlist;
+    QMediaPlaylist *library;
 
-
-
-    void PlaySong(QString url);
-    void SetPlaylist(Playlist* userLibrary);
+    void SetupVolumeSlider();
     bool clickedPlay = false;
 
     const QString playImageUrl = ":/img/imgPlay.png";

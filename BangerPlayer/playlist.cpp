@@ -19,3 +19,12 @@ void Playlist::ShowPlaylist()
         qDebug() << listOfSongs.at(i).musicSource;
     }
 }
+
+void Playlist::SetPlaylist(QMediaPlaylist *playlist, QMediaPlayer *player)
+{
+    for (int i = 0; i < listOfSongs.size(); ++i)
+        playlist->addMedia(QUrl(listOfSongs[i].musicSource));
+    playlist->setCurrentIndex(0);
+    player->setMedia(playlist);
+
+}

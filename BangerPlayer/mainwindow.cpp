@@ -9,30 +9,20 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-
     player = new QMediaPlayer(this);
     connect(player, &QMediaPlayer::positionChanged, this, &MainWindow::on_positionChanged);
     connect(player, &QMediaPlayer::durationChanged, this, &MainWindow::on_durationChanged);
 
-    playlist = new QMediaPlaylist(this);
+    SetupVolumeSlider();
 
-
-    //PlaySong("http://site4933.web1.titanaxe.com/malik_montana/lyzka.mp3");
-
-
-    ui->volumeSlider->setRange(0,100);
-    ui->volumeSlider->setFixedWidth(100);
-    ui->volumeSlider->setValue(50);
-    connect(ui->volumeSlider, SIGNAL(valueChanged(int)),player, SLOT(setVolume(int)));
-
+    library = new QMediaPlaylist(this);
     userLibrary = new Playlist(this);
 
     dbConnection = new DBConnection(this);
     dbConnection->GetUserLibrary(userLibrary);
     userLibrary->ShowPlaylist();
 
-
-    SetPlaylist(userLibrary);
+    userLibrary->SetPlaylist(library,player);
 
 }
 
@@ -54,20 +44,6 @@ void MainWindow::on_playBtn_clicked()
         player->pause();
         ui->playBtn->setStyleSheet("border-image:url("+ playImageUrl +");");
     }
-}
-
-void MainWindow::PlaySong(QString url)
-{
-    //player->setMedia(QUrl(url));
-}
-
-void MainWindow::SetPlaylist(Playlist *userLibrary)
-{
-    for (int i = 0; i < userLibrary->listOfSongs.size(); ++i) {
-        playlist->addMedia(QUrl(userLibrary->listOfSongs[i].musicSource));
-    }
-    playlist->setCurrentIndex(0);
-    player->setPlaylist(playlist);
 }
 
 void MainWindow::on_volumeSlider_valueChanged(int value)
@@ -121,10 +97,18 @@ void MainWindow::on_songSlider_sliderMoved(int position)
 
 void MainWindow::on_nextSongBtn_clicked()
 {
-    playlist->next();
+    library->next();
 }
 
 void MainWindow::on_prevSongBtn_clicked()
 {
-    playlist->previous();
+    library->previous();
+}
+
+void MainWindow::SetupVolumeSlider()
+{
+    ui->volumeSlider->setRange(0,100);
+    ui->volumeSlider->setFixedWidth(100);
+    ui->volumeSlider->setValue(50);
+    connect(ui->volumeSlider, SIGNAL(valueChanged(int)),player, SLOT(setVolume(int)));
 }

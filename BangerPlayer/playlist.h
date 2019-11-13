@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QList>
 #include <QDebug>
+#include <QMediaPlaylist>
+#include <QMediaPlayer>
 #include "author.h"
 #include "music.h"
 
@@ -16,6 +18,7 @@ public:
     void ShowPlaylist();
     QString playlistName;
     QList<Music> listOfSongs;
+    void SetPlaylist(QMediaPlaylist *playlist, QMediaPlayer *player);
 
 signals:
 
