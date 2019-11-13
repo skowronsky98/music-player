@@ -16,7 +16,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    authentication.cpp \
     author.cpp \
+    authwindow.cpp \
     dbconnection.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -24,13 +26,16 @@ SOURCES += \
     playlist.cpp
 
 HEADERS += \
+    authentication.h \
     author.h \
+    authwindow.h \
     dbconnection.h \
     mainwindow.h \
     music.h \
     playlist.h
 
 FORMS += \
+    authwindow.ui \
     mainwindow.ui
 
 # Default rules for deployment.

@@ -29,6 +29,51 @@ void DBConnection::GetUserLibrary(Playlist *userLibrary)
 
 
 }
+bool DBConnection::UserAuth(QString login, QString password)
+{
+    QSqlQuery query("SELECT login, password FROM users");
+    while (query.next()){
+        if(query.value(0)==login)
+        {
+            db_login = query.value(0).toString();
+            db_password = query.value(1).toString();
+            if(login == db_login && password == db_password)
+                return true;
+            else
+                return false;
+            }
+        }
+
+    return false;
+}
+bool DBConnection::UserAuthRegister(QString login,QString password,QString name,QString surname,QString nickname){
+    QSqlQuery query;
+    query.prepare("INSERT INTO users(login,password,name,surname,nickname)"
+                  "VALUES(:login,:password,:name,:surname,:nickname)");
+    query.bindValue(":login",login);
+    query.bindValue(":password",password);
+    query.bindValue(":name",name);
+    query.bindValue(":surname",surname);
+    query.bindValue(":nickname",nickname);
+    if(query.exec())
+        return true;
+    else
+        return false;
+
+}
+QString GetUserNick(QString login){
+    QString nick;
+    QSqlQuery query("SELECT login FROM users");
+    while (query.next()){
+        if(query.value(0)==login)
+        {
+            nick = query.value(0).toString();
+            return nick;
+        }
+
+}
+    return nick;
+}
 
 
 
