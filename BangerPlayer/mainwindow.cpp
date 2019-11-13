@@ -22,9 +22,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     dbConnection = new DBConnection(this);
     dbConnection->GetUserLibrary(userLibrary);
-    userLibrary->ShowPlaylist();
+    //userLibrary->ShowPlaylist();
 
     userLibrary->SetPlaylist(library,player);
+    dbConnection->CloseConnection();
 
 }
 

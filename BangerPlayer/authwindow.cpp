@@ -35,7 +35,7 @@ void AuthWindow::on_loginButton_clicked()
         hide();
         mainwindow = new MainWindow(this);
         mainwindow->show();
-
+        auth.db.CloseConnection();
     }
     else{
         mess.setText("Nie ma takiego użytkownika!");
@@ -56,6 +56,7 @@ void AuthWindow::on_registerButton_clicked()
         ui->authframe->setCurrentIndex(0);
         mess.setText("Udalo sie utowrzyc konto!");
         mess.exec();
+        auth.db.CloseConnection();
     }
     else{
         mess.setText("Nie udalo sie utworzyc konta :(");

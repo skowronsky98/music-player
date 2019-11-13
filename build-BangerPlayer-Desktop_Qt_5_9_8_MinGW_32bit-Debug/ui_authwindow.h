@@ -58,14 +58,19 @@ public:
         if (AuthWindow->objectName().isEmpty())
             AuthWindow->setObjectName(QStringLiteral("AuthWindow"));
         AuthWindow->resize(800, 600);
+        AuthWindow->setStyleSheet(QStringLiteral("background-color: rgb(24, 24, 24);"));
         centralwidget = new QWidget(AuthWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         loginOptionButton = new QPushButton(centralwidget);
         loginOptionButton->setObjectName(QStringLiteral("loginOptionButton"));
         loginOptionButton->setGeometry(QRect(230, 80, 88, 27));
+        loginOptionButton->setStyleSheet(QLatin1String("background-color: rgb(40, 40, 40);\n"
+"color:white;"));
         registerOptionButton = new QPushButton(centralwidget);
         registerOptionButton->setObjectName(QStringLiteral("registerOptionButton"));
         registerOptionButton->setGeometry(QRect(450, 80, 88, 27));
+        registerOptionButton->setStyleSheet(QLatin1String("background-color: rgb(40, 40, 40);\n"
+"color:white;"));
         authframe = new QStackedWidget(centralwidget);
         authframe->setObjectName(QStringLiteral("authframe"));
         authframe->setGeometry(QRect(160, 150, 441, 331));
@@ -74,54 +79,86 @@ public:
         label = new QLabel(page);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(70, 70, 71, 20));
+        label->setStyleSheet(QStringLiteral("color:white;"));
         label_2 = new QLabel(page);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(70, 110, 71, 21));
+        label_2->setStyleSheet(QStringLiteral("color:white;"));
         loginButton = new QPushButton(page);
         loginButton->setObjectName(QStringLiteral("loginButton"));
         loginButton->setGeometry(QRect(140, 180, 171, 27));
+        loginButton->setStyleSheet(QLatin1String("background-color: rgb(40, 40, 40);\n"
+"color:white;"));
         loginData = new QLineEdit(page);
         loginData->setObjectName(QStringLiteral("loginData"));
         loginData->setGeometry(QRect(140, 70, 231, 27));
+        loginData->setStyleSheet(QLatin1String("border-radius: 25px;\n"
+"background-color: rgb(40, 40, 40); \n"
+"color: white;"));
         passwordData = new QLineEdit(page);
         passwordData->setObjectName(QStringLiteral("passwordData"));
         passwordData->setGeometry(QRect(140, 110, 231, 27));
+        passwordData->setStyleSheet(QLatin1String("border-radius: 25px;\n"
+"background-color: rgb(40, 40, 40); \n"
+"color: white;"));
         authframe->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QStringLiteral("page_2"));
         label_3 = new QLabel(page_2);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(90, 50, 91, 21));
+        label_3->setStyleSheet(QStringLiteral("color:white;"));
         label_4 = new QLabel(page_2);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(90, 90, 91, 21));
+        label_4->setStyleSheet(QStringLiteral("color:white;"));
         label_5 = new QLabel(page_2);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setGeometry(QRect(90, 130, 91, 21));
+        label_5->setStyleSheet(QStringLiteral("color:white;"));
         label_6 = new QLabel(page_2);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(90, 170, 91, 21));
+        label_6->setStyleSheet(QStringLiteral("color:white;"));
         label_7 = new QLabel(page_2);
         label_7->setObjectName(QStringLiteral("label_7"));
         label_7->setGeometry(QRect(90, 210, 91, 21));
+        label_7->setStyleSheet(QStringLiteral("color:white;"));
         registerButton = new QPushButton(page_2);
         registerButton->setObjectName(QStringLiteral("registerButton"));
         registerButton->setGeometry(QRect(150, 290, 161, 27));
+        registerButton->setStyleSheet(QLatin1String("background-color: rgb(40, 40, 40);\n"
+"color:white;"));
         registerLoginData = new QLineEdit(page_2);
         registerLoginData->setObjectName(QStringLiteral("registerLoginData"));
         registerLoginData->setGeometry(QRect(180, 50, 231, 27));
+        registerLoginData->setStyleSheet(QLatin1String("border-radius: 25px;\n"
+"background-color: rgb(40, 40, 40); \n"
+"color: white;"));
         registerPasswordData = new QLineEdit(page_2);
         registerPasswordData->setObjectName(QStringLiteral("registerPasswordData"));
         registerPasswordData->setGeometry(QRect(180, 90, 231, 27));
+        registerPasswordData->setStyleSheet(QLatin1String("border-radius: 25px;\n"
+"background-color: rgb(40, 40, 40); \n"
+"color: white;"));
         registerNameData = new QLineEdit(page_2);
         registerNameData->setObjectName(QStringLiteral("registerNameData"));
         registerNameData->setGeometry(QRect(180, 130, 231, 27));
+        registerNameData->setStyleSheet(QLatin1String("border-radius: 25px;\n"
+"background-color: rgb(40, 40, 40); \n"
+"color: white;"));
         registerSurnameData = new QLineEdit(page_2);
         registerSurnameData->setObjectName(QStringLiteral("registerSurnameData"));
         registerSurnameData->setGeometry(QRect(180, 170, 231, 27));
+        registerSurnameData->setStyleSheet(QLatin1String("border-radius: 25px;\n"
+"background-color: rgb(40, 40, 40); \n"
+"color: white;"));
         registerNicknameData = new QLineEdit(page_2);
         registerNicknameData->setObjectName(QStringLiteral("registerNicknameData"));
         registerNicknameData->setGeometry(QRect(180, 210, 231, 27));
+        registerNicknameData->setStyleSheet(QLatin1String("border-radius: 25px;\n"
+"background-color: rgb(40, 40, 40); \n"
+"color: white;"));
         authframe->addWidget(page_2);
         AuthWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(AuthWindow);
@@ -134,7 +171,7 @@ public:
 
         retranslateUi(AuthWindow);
 
-        authframe->setCurrentIndex(1);
+        authframe->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(AuthWindow);

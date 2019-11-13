@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(24, 24, 24);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="loginOptionButton">
     <property name="geometry">
@@ -22,6 +25,10 @@
       <width>88</width>
       <height>27</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(40, 40, 40);
+color:white;</string>
     </property>
     <property name="text">
      <string>Logowanie</string>
@@ -35,6 +42,10 @@
       <width>88</width>
       <height>27</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(40, 40, 40);
+color:white;</string>
     </property>
     <property name="text">
      <string>Rejestracja</string>
@@ -50,7 +61,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label">
@@ -61,6 +72,9 @@
         <width>71</width>
         <height>20</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;</string>
       </property>
       <property name="text">
        <string>Login:</string>
@@ -75,6 +89,9 @@
         <height>21</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;</string>
+      </property>
       <property name="text">
        <string>Haslo:</string>
       </property>
@@ -87,6 +104,10 @@
         <width>171</width>
         <height>27</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(40, 40, 40);
+color:white;</string>
       </property>
       <property name="text">
        <string>Zaloguj</string>
@@ -101,6 +122,11 @@
         <height>27</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 25px;
+background-color: rgb(40, 40, 40); 
+color: white;</string>
+      </property>
      </widget>
      <widget class="QLineEdit" name="passwordData">
       <property name="geometry">
@@ -110,6 +136,11 @@
         <width>231</width>
         <height>27</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 25px;
+background-color: rgb(40, 40, 40); 
+color: white;</string>
       </property>
      </widget>
     </widget>
@@ -122,6 +153,9 @@
         <width>91</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;</string>
       </property>
       <property name="text">
        <string>Login:</string>
@@ -136,6 +170,9 @@
         <height>21</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;</string>
+      </property>
       <property name="text">
        <string>Haslo:</string>
       </property>
@@ -148,6 +185,9 @@
         <width>91</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;</string>
       </property>
       <property name="text">
        <string>Imie:</string>
@@ -162,6 +202,9 @@
         <height>21</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;</string>
+      </property>
       <property name="text">
        <string>Nazwisko:</string>
       </property>
@@ -174,6 +217,9 @@
         <width>91</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;</string>
       </property>
       <property name="text">
        <string>Nick:</string>
@@ -188,6 +234,10 @@
         <height>27</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(40, 40, 40);
+color:white;</string>
+      </property>
       <property name="text">
        <string>Zarejestruj</string>
       </property>
@@ -201,6 +251,11 @@
         <height>27</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 25px;
+background-color: rgb(40, 40, 40); 
+color: white;</string>
+      </property>
      </widget>
      <widget class="QLineEdit" name="registerPasswordData">
       <property name="geometry">
@@ -210,6 +265,11 @@
         <width>231</width>
         <height>27</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 25px;
+background-color: rgb(40, 40, 40); 
+color: white;</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="registerNameData">
@@ -221,6 +281,11 @@
         <height>27</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 25px;
+background-color: rgb(40, 40, 40); 
+color: white;</string>
+      </property>
      </widget>
      <widget class="QLineEdit" name="registerSurnameData">
       <property name="geometry">
@@ -231,6 +296,11 @@
         <height>27</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 25px;
+background-color: rgb(40, 40, 40); 
+color: white;</string>
+      </property>
      </widget>
      <widget class="QLineEdit" name="registerNicknameData">
       <property name="geometry">
@@ -240,6 +310,11 @@
         <width>231</width>
         <height>27</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 25px;
+background-color: rgb(40, 40, 40); 
+color: white;</string>
       </property>
      </widget>
     </widget>
