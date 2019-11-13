@@ -2,6 +2,14 @@
 
 DBConnection::DBConnection(QObject *parent) : QObject(parent)
 {
+
+}
+
+void DBConnection::CloseConnection()
+{
+    database.close();
+}
+bool DBConnection::Connect(){
     database = QSqlDatabase::addDatabase("QMYSQL");
     database.setHostName("54.38.50.59");
     database.setDatabaseName("www2699_bangerplayer");
@@ -9,11 +17,6 @@ DBConnection::DBConnection(QObject *parent) : QObject(parent)
     database.setPassword("Fda7lMGXw9Ri3UHXU6sx");
     ok = database.open();
     qDebug() << endl << "DBConnection: " << ok << endl;
-}
-
-void DBConnection::CloseConnection()
-{
-    database.close();
 }
 
 void DBConnection::GetUserLibrary(Playlist *userLibrary)

@@ -17,6 +17,7 @@ public:
     void GetUserLibrary(Playlist *userLibrary);
     bool UserAuth(QString login, QString password);
     bool UserAuthRegister(QString login,QString password,QString name,QString surname,QString nickname);
+    bool Connect();
     QString GetUserNick(QString login);
 private:
     QSqlDatabase database;

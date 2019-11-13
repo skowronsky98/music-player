@@ -2,7 +2,7 @@
 
 Authentication::Authentication(QObject *parent) : QObject(parent)
 {
-
+    db.Connect();
 }
 bool Authentication::Login(QString login, QString password){
     if(db.UserAuth(login,password))

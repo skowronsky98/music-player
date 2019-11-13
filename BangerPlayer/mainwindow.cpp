@@ -101,6 +101,8 @@ void MainWindow::on_songSlider_sliderMoved(int position)
 void MainWindow::on_nextSongBtn_clicked()
 {
     library->next();
+    library->currentMedia();
+    content->operator==(library->currentMedia());
 }
 
 void MainWindow::on_prevSongBtn_clicked()
