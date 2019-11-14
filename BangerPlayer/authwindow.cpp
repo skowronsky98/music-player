@@ -35,7 +35,7 @@ void AuthWindow::on_loginButton_clicked()
         hide();
         mainwindow = new MainWindow(this);
         mainwindow->show();
-        auth.db.CloseConnection();
+        //auth.db.CloseConnection();
     }
     else{
         mess.setText("Nie ma takiego użytkownika!");
