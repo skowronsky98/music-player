@@ -7,6 +7,7 @@
 #include <QString>
 #include <QStackedWidget>
 #include <QMediaPlaylist>
+#include <QMediaContent>
 
 #include <playlist.h>
 #include "dbconnection.h"
@@ -54,6 +55,7 @@ private:
     Playlist *userLibrary;
     DBConnection *dbConnection;
     QMediaPlaylist *library;
+    QMediaContent *content;
 
     void SetupVolumeSlider();
     bool clickedPlay = false;
