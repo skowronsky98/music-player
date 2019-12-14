@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <QLabel>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->userlabel->setText(DataStore::login);
-
+    //ui->songTitle->setText("Mis Malis");
 
     player = new QMediaPlayer(this);
     connect(player, &QMediaPlayer::positionChanged, this, &MainWindow::on_positionChanged);
@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     userLibrary->SetPlaylist(library,player);
     dbConnection->CloseConnection();
-
+    //userLibrary->ShowPlaylist();
 }
 
 MainWindow::~MainWindow()
@@ -40,7 +40,8 @@ void MainWindow::on_playBtn_clicked()
         clickedPlay = true;
         player->play();
         ui->playBtn->setStyleSheet("border-image:url("+ pauseImageUrl +");");
-
+        ui->songTitle->setText(userLibrary->getCurrentMusic(library).musicTitle);
+        ui->songAuthor->setText(userLibrary->getCurrentMusic(library).authorName + " " + userLibrary->getCurrentMusic(library).authorSurname);
     }
     else {
         clickedPlay = false;
@@ -100,14 +101,20 @@ void MainWindow::on_songSlider_sliderMoved(int position)
 
 void MainWindow::on_nextSongBtn_clicked()
 {
-    library->next();
-    library->currentMedia();
-    content->operator==(library->currentMedia());
+    if (library->currentIndex() < userLibrary->getSongs().size()){
+
+        library->next();
+
+        ui->songTitle->setText(userLibrary->getCurrentMusic(library).musicTitle);
+        ui->songAuthor->setText(userLibrary->getCurrentMusic(library).authorName + " " + userLibrary->getCurrentMusic(library).authorSurname);
+    }
 }
 
 void MainWindow::on_prevSongBtn_clicked()
 {
     library->previous();
+    ui->songTitle->setText(userLibrary->getCurrentMusic(library).musicTitle);
+    ui->songAuthor->setText(userLibrary->getCurrentMusic(library).authorName + " " + userLibrary->getCurrentMusic(library).authorSurname);
 }
 
 void MainWindow::SetupVolumeSlider()

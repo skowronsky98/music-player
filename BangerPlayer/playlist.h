@@ -14,12 +14,14 @@ class Playlist : public QObject
     Q_OBJECT
 public:
     explicit Playlist(QObject *parent = nullptr);
-    void GetUserLibraryData(int musicId, QString musicTitle, QString musicSource, QString albumTitle);
+    void GetUserLibraryData(int musicId, QString musicTitle, QString musicSource, QString albumTitle, QString musicAuthorN, QString musicAuthorS);
     void ShowPlaylist();
     QString playlistName;
     QList<Music> listOfSongs;
     void SetPlaylist(QMediaPlaylist *playlist, QMediaPlayer *player);
 
+    const QList<Music> & getSongs();
+    const Music & getCurrentMusic(QMediaPlaylist * library);
 signals:
 
 public slots:

@@ -46,6 +46,8 @@ public:
     QPushButton *volumeBtn;
     QSlider *volumeSlider;
     QPushButton *pushButton;
+    QLabel *songTitle;
+    QLabel *songAuthor;
     QFrame *menu;
     QPushButton *playlistsBtn;
     QPushButton *libraryBtn;
@@ -162,6 +164,16 @@ public:
         pushButton->setGeometry(QRect(600, 10, 71, 31));
         pushButton->setStyleSheet(QLatin1String("color:white;\n"
 "background-color: rgb(255, 255, 127);"));
+        songTitle = new QLabel(playerBar);
+        songTitle->setObjectName(QStringLiteral("songTitle"));
+        songTitle->setGeometry(QRect(100, 10, 181, 21));
+        QFont font;
+        font.setPointSize(11);
+        songTitle->setFont(font);
+        songAuthor = new QLabel(playerBar);
+        songAuthor->setObjectName(QStringLiteral("songAuthor"));
+        songAuthor->setGeometry(QRect(50, 40, 171, 21));
+        songAuthor->setFont(font);
         menu = new QFrame(centralwidget);
         menu->setObjectName(QStringLiteral("menu"));
         menu->setGeometry(QRect(-1, -1, 171, 341));
@@ -218,6 +230,8 @@ public:
         prevSongBtn->setText(QString());
         volumeBtn->setText(QString());
         pushButton->setText(QApplication::translate("MainWindow", "PushButton", Q_NULLPTR));
+        songTitle->setText(QString());
+        songAuthor->setText(QString());
         playlistsBtn->setText(QApplication::translate("MainWindow", "Playlists", Q_NULLPTR));
         libraryBtn->setText(QApplication::translate("MainWindow", "My Library", Q_NULLPTR));
         searchBtn->setText(QApplication::translate("MainWindow", "Search", Q_NULLPTR));

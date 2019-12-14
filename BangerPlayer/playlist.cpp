@@ -6,9 +6,9 @@ Playlist::Playlist(QObject *parent) : QObject(parent)
 
 }
 
-void Playlist::GetUserLibraryData(int musicId, QString musicTitle, QString musicSource, QString albumTitle){
+void Playlist::GetUserLibraryData(int musicId, QString musicTitle, QString musicSource, QString albumTitle, QString musicAuthorN, QString musicAuthorS){
     this->playlistName = albumTitle;
-    this->listOfSongs.push_back(Music(musicId,musicTitle,musicSource));
+    this->listOfSongs.push_back(Music(musicId,musicTitle,musicSource, musicAuthorN, musicAuthorS));
 }
 
 void Playlist::ShowPlaylist()
@@ -27,4 +27,14 @@ void Playlist::SetPlaylist(QMediaPlaylist *playlist, QMediaPlayer *player)
     playlist->setCurrentIndex(0);
     player->setMedia(playlist);
 
+}
+
+const QList<Music> & Playlist::getSongs()
+{
+    return listOfSongs;
+}
+
+const Music & Playlist::getCurrentMusic(QMediaPlaylist * library)
+{
+    return listOfSongs[library->currentIndex()];
 }
