@@ -22,6 +22,10 @@ public:
 
     const QList<Music> & getSongs();
     const Music & getCurrentMusic(QMediaPlaylist * library);
+    QString getAuthor(QMediaPlaylist * library){
+        auto & lib = listOfSongs[library->currentIndex()];
+        return lib.authorName + " " + lib.authorSurname;
+    }
 signals:
 
 public slots:

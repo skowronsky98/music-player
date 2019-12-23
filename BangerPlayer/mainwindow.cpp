@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     player = new QMediaPlayer(this);
     connect(player, &QMediaPlayer::positionChanged, this, &MainWindow::on_positionChanged);
     connect(player, &QMediaPlayer::durationChanged, this, &MainWindow::on_durationChanged);
+    connect(player, &QMediaPlayer::audioAvailableChanged, this, &MainWindow::on_songChanged);
 
     SetupVolumeSlider();
 
@@ -41,7 +42,7 @@ void MainWindow::on_playBtn_clicked()
         player->play();
         ui->playBtn->setStyleSheet("border-image:url("+ pauseImageUrl +");");
         ui->songTitle->setText(userLibrary->getCurrentMusic(library).musicTitle);
-        ui->songAuthor->setText(userLibrary->getCurrentMusic(library).authorName + " " + userLibrary->getCurrentMusic(library).authorSurname);
+        ui->songAuthor->setText(userLibrary->getAuthor(library));
     }
     else {
         clickedPlay = false;
@@ -101,20 +102,30 @@ void MainWindow::on_songSlider_sliderMoved(int position)
 
 void MainWindow::on_nextSongBtn_clicked()
 {
-    if (library->currentIndex() < userLibrary->getSongs().size()){
-
+    if (library->currentIndex() < userLibrary->getSongs().size() - 1)
         library->next();
+    else
+        library->setCurrentIndex(0);
 
-        ui->songTitle->setText(userLibrary->getCurrentMusic(library).musicTitle);
-        ui->songAuthor->setText(userLibrary->getCurrentMusic(library).authorName + " " + userLibrary->getCurrentMusic(library).authorSurname);
-    }
+    //ui->songTitle->setText(userLibrary->getCurrentMusic(library).musicTitle);
+    //ui->songAuthor->setText(userLibrary->getAuthor(library));
 }
 
 void MainWindow::on_prevSongBtn_clicked()
 {
-    library->previous();
+    if (library->currentIndex() > 0)
+        library->previous();
+    else
+        library->setCurrentIndex(userLibrary->getSongs().size() - 1);
+
+    //ui->songTitle->setText(userLibrary->getCurrentMusic(library).musicTitle);
+    //ui->songAuthor->setText(userLibrary->getAuthor(library));
+}
+
+void MainWindow::on_songChanged(bool avaible)
+{
     ui->songTitle->setText(userLibrary->getCurrentMusic(library).musicTitle);
-    ui->songAuthor->setText(userLibrary->getCurrentMusic(library).authorName + " " + userLibrary->getCurrentMusic(library).authorSurname);
+    ui->songAuthor->setText(userLibrary->getAuthor(library));
 }
 
 void MainWindow::SetupVolumeSlider()

@@ -47,6 +47,8 @@ private slots:
     void on_nextSongBtn_clicked();
 
     void on_prevSongBtn_clicked();
+
+    void on_songChanged(bool avaible);
 private:
     Ui::MainWindow *ui;
     QMediaPlayer *player;
