@@ -45,13 +45,10 @@ public:
     QSlider *songSlider;
     QPushButton *volumeBtn;
     QSlider *volumeSlider;
-    QPushButton *pushButton;
     QLabel *songTitle;
     QLabel *songAuthor;
     QFrame *menu;
-    QPushButton *playlistsBtn;
     QPushButton *libraryBtn;
-    QPushButton *searchBtn;
     QLabel *userlabel;
     QFrame *frame_2;
     QLabel *albumImg;
@@ -78,6 +75,48 @@ public:
         libraryList = new QListView(page);
         libraryList->setObjectName(QStringLiteral("libraryList"));
         libraryList->setGeometry(QRect(0, 60, 681, 461));
+        QPalette palette;
+        QBrush brush(QColor(24, 24, 24, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Button, brush);
+        QBrush brush1(QColor(255, 0, 0, 255));
+        brush1.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Text, brush1);
+        QBrush brush2(QColor(0, 0, 127, 255));
+        brush2.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::ButtonText, brush2);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush);
+        QBrush brush3(QColor(255, 0, 0, 128));
+        brush3.setStyle(Qt::SolidPattern);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Active, QPalette::PlaceholderText, brush3);
+#endif
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Text, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::ButtonText, brush2);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush3);
+#endif
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush);
+        QBrush brush4(QColor(120, 120, 120, 255));
+        brush4.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Disabled, QPalette::Text, brush4);
+        palette.setBrush(QPalette::Disabled, QPalette::ButtonText, brush4);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush);
+        QBrush brush5(QColor(0, 0, 0, 128));
+        brush5.setStyle(Qt::SolidPattern);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush5);
+#endif
+        libraryList->setPalette(palette);
+        QFont font;
+        font.setPointSize(16);
+        font.setUnderline(false);
+        libraryList->setFont(font);
         libraryList->setStyleSheet(QStringLiteral("border-color:\"transparent\";"));
         libraryList->setEditTriggers(QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed);
         frame->addWidget(page);
@@ -159,39 +198,26 @@ public:
         volumeSlider->setObjectName(QStringLiteral("volumeSlider"));
         volumeSlider->setGeometry(QRect(730, 50, 101, 16));
         volumeSlider->setOrientation(Qt::Horizontal);
-        pushButton = new QPushButton(playerBar);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(600, 10, 71, 31));
-        pushButton->setStyleSheet(QLatin1String("color:white;\n"
-"background-color: rgb(255, 255, 127);"));
         songTitle = new QLabel(playerBar);
         songTitle->setObjectName(QStringLiteral("songTitle"));
         songTitle->setGeometry(QRect(100, 10, 181, 21));
-        QFont font;
-        font.setPointSize(11);
-        songTitle->setFont(font);
+        QFont font1;
+        font1.setPointSize(16);
+        songTitle->setFont(font1);
         songAuthor = new QLabel(playerBar);
         songAuthor->setObjectName(QStringLiteral("songAuthor"));
         songAuthor->setGeometry(QRect(50, 40, 171, 21));
-        songAuthor->setFont(font);
+        songAuthor->setFont(font1);
         menu = new QFrame(centralwidget);
         menu->setObjectName(QStringLiteral("menu"));
         menu->setGeometry(QRect(-1, -1, 171, 341));
         menu->setStyleSheet(QStringLiteral("background-color: rgb(18, 18, 18);"));
         menu->setFrameShape(QFrame::StyledPanel);
         menu->setFrameShadow(QFrame::Raised);
-        playlistsBtn = new QPushButton(menu);
-        playlistsBtn->setObjectName(QStringLiteral("playlistsBtn"));
-        playlistsBtn->setGeometry(QRect(0, 150, 171, 51));
-        playlistsBtn->setStyleSheet(QStringLiteral("color:white;"));
         libraryBtn = new QPushButton(menu);
         libraryBtn->setObjectName(QStringLiteral("libraryBtn"));
         libraryBtn->setGeometry(QRect(0, 100, 171, 51));
         libraryBtn->setStyleSheet(QStringLiteral("color:white;"));
-        searchBtn = new QPushButton(menu);
-        searchBtn->setObjectName(QStringLiteral("searchBtn"));
-        searchBtn->setGeometry(QRect(0, 200, 171, 51));
-        searchBtn->setStyleSheet(QStringLiteral("color:white;"));
         userlabel = new QLabel(menu);
         userlabel->setObjectName(QStringLiteral("userlabel"));
         userlabel->setGeometry(QRect(20, 20, 141, 31));
@@ -229,12 +255,9 @@ public:
         nextSongBtn->setText(QString());
         prevSongBtn->setText(QString());
         volumeBtn->setText(QString());
-        pushButton->setText(QApplication::translate("MainWindow", "PushButton", Q_NULLPTR));
         songTitle->setText(QString());
         songAuthor->setText(QString());
-        playlistsBtn->setText(QApplication::translate("MainWindow", "Playlists", Q_NULLPTR));
         libraryBtn->setText(QApplication::translate("MainWindow", "My Library", Q_NULLPTR));
-        searchBtn->setText(QApplication::translate("MainWindow", "Search", Q_NULLPTR));
         userlabel->setText(QApplication::translate("MainWindow", "Uzytkownik", Q_NULLPTR));
         albumImg->setText(QString());
     } // retranslateUi

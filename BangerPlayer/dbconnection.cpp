@@ -22,37 +22,18 @@ bool DBConnection::Connect(){
 
 void DBConnection::GetUserLibrary(Playlist *userLibrary)
 {
-    struct dataAuthor
-    {
-        QString name;
-        QString surname;
-    };
+    QSqlQuery query("SELECT m.id, m.title, m.source_song, a.name, a.surname FROM user_library l JOIN global_library m on l.id_music = m.id JOIN users u on u.id = l.id_user JOIN authors a on a.id = m.id_author WHERE u.id = 1");
 
-    std::vector<dataAuthor> lista_autorow;
-
-    int i = 0;
-
-    QSqlQuery query2("SELECT name, surname FROM authors");
-    while (query2.next())
-    {
-        QString authorN = query2.value(0).toString();
-        QString authorS = query2.value(1).toString();
-
-        lista_autorow.push_back({authorN, authorS});
-        qDebug() << lista_autorow[i].name + " " + lista_autorow[i].surname;
-        ++i;
-    }
-
-    QSqlQuery query("SELECT m.id, m.title, m.source_song, a.name FROM user_library l JOIN global_library m on l.id_music = m.id JOIN users u on u.id = l.id_user JOIN authors a on a.id = m.id_author WHERE u.id = 1");
-
-    i = 0;
     while (query.next()) {
        int musicId = query.value(0).toInt();
        QString musicTitle = query.value(1).toString();
        QString musicSource = query.value(2).toString();
        QString albumTitle = query.value(3).toString();
-       userLibrary->GetUserLibraryData(musicId,musicTitle,musicSource,"Library", lista_autorow[i].name, lista_autorow[i].surname);
-       ++i;
+       QString author_surname = query.value(4).toString();
+
+       //qDebug() << albumTitle;// << " " << musicTitle << " " << authorsa;
+
+       userLibrary->GetUserLibraryData(musicId,musicTitle,musicSource,"Library", albumTitle, author_surname);
     }
 }
 bool DBConnection::UserAuth(QString login, QString password)

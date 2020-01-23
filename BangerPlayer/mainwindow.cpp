@@ -28,6 +28,14 @@ MainWindow::MainWindow(QWidget *parent)
     userLibrary->SetPlaylist(library,player);
     dbConnection->CloseConnection();
     //userLibrary->ShowPlaylist();
+
+    QSqlQueryModel * library_query = new QSqlQueryModel();
+
+    library_query->setQuery("SELECT l.title FROM global_library l JOIN authors a on a.id = l.id");
+
+    ui->libraryList->setModel(library_query);
+    ui->libraryList->show();
+
 }
 
 MainWindow::~MainWindow()
@@ -78,7 +86,7 @@ void MainWindow::on_pushButton_clicked()
 {
     //Debuging Button
 
-
+    userLibrary->ShowPlaylist();
 
 }
 
@@ -124,8 +132,24 @@ void MainWindow::on_prevSongBtn_clicked()
 
 void MainWindow::on_songChanged(bool avaible)
 {
-    ui->songTitle->setText(userLibrary->getCurrentMusic(library).musicTitle);
-    ui->songAuthor->setText(userLibrary->getAuthor(library));
+    if (library->currentIndex() == userLibrary->getSongs().size() - 1){
+        ui->songTitle->setText(userLibrary->getCurrentMusic(library).musicTitle);
+        ui->songAuthor->setText(userLibrary->getAuthor(library));
+        is_end = true;
+        //library->setCurrentIndex(0);
+        //player->stop();
+    }
+    else
+    {
+        if (is_end)
+        {
+            library->setCurrentIndex(0);
+            player->stop();
+            is_end = false;
+        }
+        ui->songTitle->setText(userLibrary->getCurrentMusic(library).musicTitle);
+        ui->songAuthor->setText(userLibrary->getAuthor(library));
+    }
 }
 
 void MainWindow::SetupVolumeSlider()

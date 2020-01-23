@@ -50,6 +50,7 @@ private slots:
 
     void on_songChanged(bool avaible);
 private:
+    bool is_end{false};
     Ui::MainWindow *ui;
     QMediaPlayer *player;
     Playlist *userLibrary;
